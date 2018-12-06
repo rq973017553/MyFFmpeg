@@ -1,7 +1,6 @@
 #! /bin/bash
 
 set -e
-set -v
 
 export LDFLAGS="${LDFLAGS} -lstdc++"
 
