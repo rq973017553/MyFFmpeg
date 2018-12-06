@@ -2,17 +2,15 @@
 
 set -e
 
-export LDFLAGS="${LDFLAGS} -lstdc++"
-
 MY_DIR=`pwd`
-PREFIX=${MY_DIR}/input
+PREFIX=${MY_DIR}/output
 
 PKG_CONFIG_GIT_URL="git://anongit.freedesktop.org/pkg-config"
 PKG_CONFIG="pkg-config"
 PKG_CONFIG_VERSION="0.29.2"
 PKG_CONFIG_URL="https://pkg-config.freedesktop.org/releases/"
 
-FFMPEG_DIR="ffmpeg"
+FFMPEG_DIR="FFmpeg"
 FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --enable-gpl
@@ -40,34 +38,30 @@ CLONE_GIT_COMMAND="git clone "
 FFMPEG_GIT_URL="git@github.com:FFmpeg/FFmpeg.git"
 
 cd $MY_DIR
+mkdir output
 
 if [ ! -e $FFMPEG_DIR ]; then
- echo "===============clone FFmpeg================"
+ echo "==========================clone FFmpeg=========================="
  $CLONE_GIT_COMMAND$FFMPEG_GIT_URL
 fi
 
 if [ ! -e $X264_DIR ]; then
- echo "===============clone libx264================"
+ echo "==========================clone x264=========================="
  $CLONE_GIT_COMMAND$X264_GIT_URL
 fi
 
-#if [ ! -e $PKG_CONFIG ]; then
-#echo "================clone pkg-config============="
-# $CLONE_GIT_COMMAND$PKG_CONFIG_GIT_URL
-#fi
-
-echo "=================download pkgconfig==========="
+echo "==========================download pkg-config=========================="
 if [ ! -e $PKG_CONFIG".tar.gz" ]; then
  if [ $SYSTEM == "Darwin" ]; then
-  curl -O $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > \ 
-$PKG_CONFIG".tar.gz"
+  curl -O $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" \
+> $PKG_CONFIG".tar.gz"
  else
-  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O \ 
-$PKG_CONFIG".tar.gz"
+  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" \
+-O $PKG_CONFIG".tar.gz"
  fi
 fi
 
-echo "================unzip pkg-config=========="
+echo "==========================unzip pkg-config=========================="
 if [ -e $PKG_CONFIG".tar.gz" ]; then
  if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then 
   rm -r $PKG_CONFIG"-"$PKG_CONFIG_VERSION
@@ -75,7 +69,7 @@ if [ -e $PKG_CONFIG".tar.gz" ]; then
  tar zxvf $PKG_CONFIG".tar.gz"
 fi
  
-echo "=================download yasm============="
+echo "==========================download yasm=========================="
 if [ ! -e $YASM".tar.gz" ]; then
  if [ $SYSTEM == "Darwin" ]; then
   curl $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" > $YASM".tar.gz"
@@ -84,7 +78,7 @@ if [ ! -e $YASM".tar.gz" ]; then
  fi
 fi
 
-echo "==================unzip yasm================"
+echo "==========================unzip yasm=========================="
 if [ -e $YASM".tar.gz" ]; then
  if [ -e $YASM"-"$YASM_VERSION ]; then 
   rm -r $YASM"-"$YASM_VERSION
@@ -92,28 +86,45 @@ if [ -e $YASM".tar.gz" ]; then
  tar zxvf $YASM".tar.gz"
 fi
 
-echo "=================install pkg-config========="
-cd $PKG_CONFIG"-"$PKG_CONFIG_VERSION
-#cd $PKG_CONFIG
-./configure --with-internal-glib
-make
-sudo make install
+echo "==========================build pkg-config=========================="
+if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
+ cd $PKG_CONFIG"-"$PKG_CONFIG_VERSION
+ ./configure --with-internal-glib
+ make clean
+ make
+ sudo make install
+fi
+echo "==========================pkg-config build successful!=========================="
 
-echo "==================install yasm================"
-cd ..
-cd $YASM"-"$YASM_VERSION
-./configure
-make
-sudo make install
 
-echo "==================install x264================="
+echo "==========================build yasm=========================="
 cd ..
-cd $X264_DIR
-$X264_CONFIGURE_COMMAND
-make
-sudo make install
+if [ -e $YASM"-"$YASM_VERSION ]; then
+ cd $YASM"-"$YASM_VERSION
+ ./configure
+ make clean
+ make
+ sudo make install
+fi
+echo "==========================yasm build successful!=========================="
 
-echo "==================install ffmpeg==============="
+
+echo "==========================build x264=========================="
 cd ..
-cd $FFMPEG_DIR
-$FFMPEG_CONFIGURE_COMMAND
+if [ -e $X264_DIR ]; then
+ cd $X264_DIR
+ $X264_CONFIGURE_COMMAND
+ make clean
+ make
+ sudo make install
+fi
+echo "==========================x264 build successful!=========================="
+
+
+echo "==========================build ffmpeg=========================="
+cd ..
+if [ -e $FFMPEG_DIR ]; then
+ cd $FFMPEG_DIR
+ $FFMPEG_CONFIGURE_COMMAND
+fi
+echo "==========================ffmpeg build successful!=========================="
