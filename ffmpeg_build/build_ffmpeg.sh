@@ -1,6 +1,7 @@
 #! /bin/bash
 
 set -e
+set -v
 
 export LDFLAGS="${LDFLAGS} -lstdc++"
 
@@ -59,11 +60,11 @@ fi
 echo "=================download pkgconfig==========="
 if [ ! -e $PKG_CONFIG".tar.gz" ]; then
  if [ $SYSTEM == "Darwin" ]; then
-  curl -O $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz"\ 
-        > $PKG_CONFIG".tar.gz"
+  curl -O $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > \ 
+$PKG_CONFIG".tar.gz"
  else
-  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz"\ 
-        -O $PKG_CONFIG".tar.gz"
+  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O \ 
+$PKG_CONFIG".tar.gz"
  fi
 fi
 
