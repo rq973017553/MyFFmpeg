@@ -38,7 +38,13 @@ CLONE_GIT_COMMAND="git clone "
 FFMPEG_GIT_URL="git@github.com:FFmpeg/FFmpeg.git"
 
 cd $MY_DIR
-mkdir output
+
+if [ -e "output" ]; then
+ rm -rf output 
+ mkdir output
+else
+ mkdir output
+fi
 
 if [ ! -e $FFMPEG_DIR ]; then
  echo "==========================clone FFmpeg=========================="
