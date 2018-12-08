@@ -8,6 +8,8 @@ LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"
 LIBVPX_VERSION="1.7.0"
 LIBVPX_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
+--enable-shared
+--disable-static
 --disable-examples
 --disable-unit-tests
 "
