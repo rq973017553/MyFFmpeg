@@ -38,4 +38,5 @@ if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================pkg-config build successful!=========================="

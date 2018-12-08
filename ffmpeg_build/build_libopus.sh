@@ -37,4 +37,5 @@ if [ -e $OPUS"-"$OPUS_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================libopus build successful!=========================="

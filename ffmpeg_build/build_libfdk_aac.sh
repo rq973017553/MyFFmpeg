@@ -36,4 +36,5 @@ if [ -e $FDK_AAC"-"$FDK_AAC_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================fdk_aac build successful!=========================="

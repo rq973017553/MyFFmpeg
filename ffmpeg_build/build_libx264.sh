@@ -27,4 +27,5 @@ if [ -e $X264 ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================x264 build successful!=========================="

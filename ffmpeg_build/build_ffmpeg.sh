@@ -2,12 +2,15 @@
 
 set -e
 
+PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
 FFMPEG="FFmpeg"
 FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir="$PREFIX/bin"
---extra-cflags="-I$PREFIX/include"
---extra-ldflags="-L$PREFIX/lib"
+--bindir=$PREFIX/bin
+--extra-cflags=-I$PREFIX/include
+--extra-ldflags=-L$PREFIX/lib
 --enable-gpl
 --enable-version3
 --enable-shared

@@ -39,4 +39,5 @@ if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================libvpx build successful!=========================="

@@ -36,5 +36,6 @@ if [ -e $YASM"-"$YASM_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================yasm build successful!=========================="
 

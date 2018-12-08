@@ -38,4 +38,5 @@ if [ -e $LAME"-"$LAME_VERSION ]; then
  make install
  make distclean
 fi
+cd ..
 echo "==========================lame build successful!=========================="
