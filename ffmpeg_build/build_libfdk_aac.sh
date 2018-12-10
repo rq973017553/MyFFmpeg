@@ -8,7 +8,8 @@ FDK_AAC_URL="https://downloads.sourceforge.net/opencore-amr/"
 FDK_AAC_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-shared
+--disable-shared
+--enable-static
 "
 
 echo "==========================download fdk-aac=========================="

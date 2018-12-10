@@ -13,7 +13,8 @@ FFMPEG_CONFIGURE_COMMAND="./configure
 --extra-ldflags=-L$PREFIX/lib
 --enable-gpl
 --enable-version3
---enable-shared
+--disable-shared
+--enable-static
 --enable-debug
 --enable-libx264
 --enable-libfdk-aac

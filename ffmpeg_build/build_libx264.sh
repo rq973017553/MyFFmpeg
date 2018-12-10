@@ -8,7 +8,8 @@ X264_GIT_URL="git://git.videolan.org/x264.git"
 X264_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-shared
+--disable-shared
+--enable-static
 --disable-asm
 "
 

@@ -8,6 +8,8 @@ YASM_VERSION="1.2.0"
 YASM_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
+--enable-static
+--disable-shared
 "
 
 
