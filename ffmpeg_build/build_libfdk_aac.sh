@@ -32,9 +32,9 @@ echo "==========================build fdk_aac=========================="
 if [ -e $FDK_AAC"-"$FDK_AAC_VERSION ]; then
  cd $FDK_AAC"-"$FDK_AAC_VERSION
  $FDK_AAC_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================fdk_aac build successful!=========================="

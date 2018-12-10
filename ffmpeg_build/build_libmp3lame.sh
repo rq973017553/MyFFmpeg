@@ -34,9 +34,9 @@ echo "==========================build lame=========================="
 if [ -e $LAME"-"$LAME_VERSION ]; then
  cd $LAME"-"$LAME_VERSION
  $LAME_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================lame build successful!=========================="

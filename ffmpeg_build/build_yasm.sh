@@ -32,9 +32,9 @@ echo "==========================build yasm=========================="
 if [ -e $YASM"-"$YASM_VERSION ]; then
  cd $YASM"-"$YASM_VERSION
  $YASM_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================yasm build successful!=========================="

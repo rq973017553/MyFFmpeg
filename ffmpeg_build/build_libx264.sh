@@ -23,9 +23,9 @@ echo "==========================build x264=========================="
 if [ -e $X264 ]; then
  cd $X264
  $X264_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================x264 build successful!=========================="

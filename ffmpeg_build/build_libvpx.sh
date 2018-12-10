@@ -35,9 +35,9 @@ echo "==========================build libvpx=========================="
 if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
  cd $LIBVPX"-"$LIBVPX_VERSION
  $LIBVPX_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================libvpx build successful!=========================="

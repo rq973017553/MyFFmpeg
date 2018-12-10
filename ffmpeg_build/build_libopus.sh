@@ -33,9 +33,9 @@ echo "==========================build libopus=========================="
 if [ -e $OPUS"-"$OPUS_VERSION ]; then
  cd $OPUS"-"$OPUS_VERSION
  $OPUS_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================libopus build successful!=========================="

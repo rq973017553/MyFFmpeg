@@ -34,9 +34,9 @@ echo "==========================build pkg-config=========================="
 if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
  cd $PKG_CONFIG"-"$PKG_CONFIG_VERSION
  $PKG_CONFIG_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 cd ..
 echo "==========================pkg-config build successful!=========================="

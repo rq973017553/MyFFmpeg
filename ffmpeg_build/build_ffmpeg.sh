@@ -36,8 +36,8 @@ echo "==========================build ffmpeg=========================="
 if [ -e $FFMPEG ]; then
  cd $FFMPEG
  $FFMPEG_CONFIGURE_COMMAND
+ make clean
  make
  make install
- make distclean
 fi
 echo "==========================ffmpeg build successful!=========================="
