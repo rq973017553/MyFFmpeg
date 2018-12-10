@@ -12,11 +12,11 @@ fi
 mkdir output
 mkdir output/bin
 
-source build_pkg_config.sh
-source build_yasm.sh
-source build_libx264.sh
-source build_libfdk_aac.sh
-source build_libmp3lame.sh
-source build_libopus.sh
-source build_libvpx.sh
-source build_ffmpeg.sh
+. build_pkg_config.sh
+. build_yasm.sh
+. build_libx264.sh
+. build_libfdk_aac.sh
+. build_libmp3lame.sh
+. build_libopus.sh
+. build_libvpx.sh
+. build_ffmpeg.sh
