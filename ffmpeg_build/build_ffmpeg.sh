@@ -2,6 +2,7 @@
 
 # mac --cc=clang
 # 禁用编译器优化选项 --disable-optimizations
+# 编译libmp3lame需要使用到--extra-cflags和--extra-ldflags属性
 
 set -e
 
@@ -14,6 +15,8 @@ FFMPEG="FFmpeg"
 COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
+--extra-cflags=-I$PREFIX/include
+--extra-ldflags=-L$PREFIX/lib
 --enable-pthreads
 --enable-gpl
 --enable-version3
@@ -42,7 +45,7 @@ MAC_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
 --enable-hardcoded-tables
 --host-cflags=
 --host-ldflags=
---CC=clang
+--cc=clang
 "
 
 FFMPEG_GIT_URL="git@github.com:FFmpeg/FFmpeg.git"
