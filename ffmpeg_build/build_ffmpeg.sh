@@ -10,30 +10,39 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 FFMPEG="FFmpeg"
 
-FFMPEG_CONFIGURE_COMMAND="./configure
+# 通用配置
+COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-filter=delogo
 --enable-pthreads
---enable-indev=avfoundation
 --enable-gpl
 --enable-version3
 --disable-optimizations
 --disable-shared
 --enable-static
 --enable-debug
+--enable-nonfree
+--enable-filter=delogo
+"
+
+# linux配置
+LINUX_FFMPEG_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
 --enable-libx264
 --enable-libfdk-aac
 --enable-libmp3lame
 --enable-libopus
 --enable-libvpx
---enable-nonfree
 "
 
-MAC_CONFIGURE_COMMAND=$UBUNTU_FFMPEG_CONFIGURE_COMMAND"--CC=clang
+# mac配置
+MAC_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
+--enable-libfdk-aac
+--enable-libx264
+--enable-libmp3lame
 --enable-hardcoded-tables
 --host-cflags=
 --host-ldflags=
+--CC=clang
 "
 
 FFMPEG_GIT_URL="git@github.com:FFmpeg/FFmpeg.git"
@@ -51,7 +60,7 @@ if [ -e $FFMPEG ]; then
  if [ $SYSTEM == "Darwin" ]; then
   $MAC_FFMPEG_CONFIGURE_COMMAND
  else
-  $FFMPEG_CONFIGURE_COMMAND
+  $LINUX_FFMPEG_CONFIGURE_COMMAND
  fi
  make clean
  make
