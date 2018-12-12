@@ -1,18 +1,24 @@
 #! /bin/bash
 
+# mac --cc=clang
+# 禁用编译器优化选项 --disable-optimizations
+
 set -e
 
 PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 FFMPEG="FFmpeg"
+
 FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---extra-cflags=-I$PREFIX/include
---extra-ldflags=-L$PREFIX/lib
+--enable-filter=delogo
+--enable-pthreads
+--enable-indev=avfoundation
 --enable-gpl
 --enable-version3
+--disable-optimizations
 --disable-shared
 --enable-static
 --enable-debug
@@ -22,6 +28,12 @@ FFMPEG_CONFIGURE_COMMAND="./configure
 --enable-libopus
 --enable-libvpx
 --enable-nonfree
+"
+
+MAC_CONFIGURE_COMMAND=$UBUNTU_FFMPEG_CONFIGURE_COMMAND"--CC=clang
+--enable-hardcoded-tables
+--host-cflags=
+--host-ldflags=
 "
 
 FFMPEG_GIT_URL="git@github.com:FFmpeg/FFmpeg.git"
@@ -36,7 +48,11 @@ fi
 echo "==========================build ffmpeg=========================="
 if [ -e $FFMPEG ]; then
  cd $FFMPEG
- $FFMPEG_CONFIGURE_COMMAND
+ if [ $SYSTEM == "Darwin" ]; then
+  $MAC_FFMPEG_CONFIGURE_COMMAND
+ else
+  $FFMPEG_CONFIGURE_COMMAND
+ fi
  make clean
  make
  make install
