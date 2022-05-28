@@ -16,7 +16,7 @@ LIBVPX_CONFIGURE_COMMAND="./configure
 
 echo "==========================download libvpx=========================="
 if [ ! -e $LIBVPX".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" > $LIBVPX".tar.gz"
  else
   wget $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" -O $LIBVPX".tar.gz"

@@ -16,7 +16,7 @@ LAME_CONFIGURE_COMMAND="./configure
 
 echo "==========================download lame=========================="
 if [ ! -e $LAME".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" > $LAME".tar.gz"
  else
   wget $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" -O $LAME".tar.gz"

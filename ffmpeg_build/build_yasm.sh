@@ -15,7 +15,7 @@ YASM_CONFIGURE_COMMAND="./configure
 
 echo "==========================download yasm=========================="
 if [ ! -e $YASM".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" > $YASM".tar.gz"
  else
   wget $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" -O $YASM".tar.gz"

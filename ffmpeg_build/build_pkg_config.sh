@@ -15,7 +15,7 @@ PKG_CONFIG_CONFIGURE_COMMAND="./configure
 
 echo "==========================download pkg-config=========================="
 if [ ! -e $PKG_CONFIG".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > $PKG_CONFIG".tar.gz"
  else
   wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG".tar.gz"

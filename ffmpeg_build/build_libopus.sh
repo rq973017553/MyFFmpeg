@@ -14,7 +14,7 @@ OPUS_CONFIGURE_COMMAND="./configure
 
 echo "==========================download libopus=========================="
 if [ ! -e $OPUS".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" > $OPUS".tar.gz"
  else
   wget $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" -O $OPUS".tar.gz"

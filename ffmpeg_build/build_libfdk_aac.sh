@@ -14,7 +14,7 @@ FDK_AAC_CONFIGURE_COMMAND="./configure
 
 echo "==========================download fdk-aac=========================="
 if [ ! -e $FDK_AAC".tar.gz" ]; then
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   curl $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" > $FDK_AAC".tar.gz"
  else
   wget $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" -O $FDK_AAC".tar.gz"
