@@ -4,7 +4,7 @@
 set -e
 
 X264="x264"
-X264_GIT_URL="https://git.videolan.org/git/x264.git"
+X264_GIT_URL="https://code.videolan.org/videolan/x264.git"
 X264_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin

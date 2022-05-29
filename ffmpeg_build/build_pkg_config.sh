@@ -18,7 +18,8 @@ if [ ! -e $PKG_CONFIG".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
   curl $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > $PKG_CONFIG".tar.gz"
  else
-  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG".tar.gz"
+  #wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG".tar.gz"
+  wget --no-check-certificate $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG".tar.gz"
  fi
 fi
  
