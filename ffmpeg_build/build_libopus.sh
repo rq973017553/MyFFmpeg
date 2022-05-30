@@ -9,7 +9,8 @@ OPUS_VERSION="1.1"
 OPUS_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-shared
+--disable-shared
+--enable-static
 "
 
 echo "==========================download libopus=========================="

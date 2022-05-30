@@ -60,7 +60,7 @@ fi
 echo "==========================build ffmpeg=========================="
 if [ -e $FFMPEG ]; then
  cd $FFMPEG
- if [ $SYSTEM == "Darwin" ]; then
+ if [[ $SYSTEM == "Darwin" ]]; then
   $MAC_FFMPEG_CONFIGURE_COMMAND
  else
   $LINUX_FFMPEG_CONFIGURE_COMMAND

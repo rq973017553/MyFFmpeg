@@ -12,6 +12,8 @@ LIBVPX_CONFIGURE_COMMAND="./configure
 --enable-static
 --disable-examples
 --disable-unit-tests
+--enable-vp9-highbitdepth
+--as=yasm
 "
 
 echo "==========================download libvpx=========================="
@@ -36,8 +38,7 @@ if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
  cd $LIBVPX"-"$LIBVPX_VERSION
  $LIBVPX_CONFIGURE_COMMAND
  make clean
- make
- make install
+ PATH=$PATH:$PREFIX/bin make && make install
 fi
 cd ..
 echo "==========================libvpx build successful!=========================="
