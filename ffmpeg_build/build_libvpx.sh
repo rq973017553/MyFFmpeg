@@ -5,7 +5,7 @@ set -e
 
 LIBVPX="libvpx"
 LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"
-LIBVPX_VERSION="1.7.0"
+LIBVPX_VERSION="1.11.0"
 LIBVPX_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --disable-shared

@@ -4,7 +4,7 @@ set -e
 
 YASM="yasm"
 YASM_DOWNLOAD_URL="http://www.tortall.net/projects/yasm/releases/"
-YASM_VERSION="1.2.0"
+YASM_VERSION="1.3.0"
 YASM_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
