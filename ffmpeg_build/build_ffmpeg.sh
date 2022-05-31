@@ -33,6 +33,7 @@ COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 # linux配置
 LINUX_FFMPEG_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
 --enable-libx264
+--enable-libx265
 --enable-libfdk-aac
 --enable-libmp3lame
 --enable-libopus

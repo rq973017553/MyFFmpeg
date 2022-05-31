@@ -43,5 +43,5 @@ if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
  make -j${cpu_num}
  make install
 fi
-cd ..
+cd $MY_DIR
 echo "==========================libvpx build successful!=========================="

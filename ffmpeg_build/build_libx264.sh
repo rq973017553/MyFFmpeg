@@ -28,5 +28,5 @@ if [ -e $X264 ]; then
  make -j${cpu_num}
  make install
 fi
-cd ..
+cd $MY_DIR
 echo "==========================x264 build successful!=========================="

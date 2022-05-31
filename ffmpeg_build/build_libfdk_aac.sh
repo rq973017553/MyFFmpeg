@@ -37,5 +37,5 @@ if [ -e $FDK_AAC"-"$FDK_AAC_VERSION ]; then
  make -j${cpu_num}
  make install
 fi
-cd ..
+cd $MY_DIR
 echo "==========================fdk_aac build successful!=========================="

@@ -22,6 +22,7 @@ mkdir output/bin
 . build_yasm.sh
 . build_libvpx.sh
 . build_libx264.sh
+. build_libx265.sh
 . build_ffmpeg.sh
 
 

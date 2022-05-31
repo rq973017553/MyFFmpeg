@@ -38,5 +38,5 @@ if [ -e $OPUS"-"$OPUS_VERSION ]; then
  make -j${cpu_num}
  make install
 fi
-cd ..
+cd $MY_DIR
 echo "==========================libopus build successful!=========================="

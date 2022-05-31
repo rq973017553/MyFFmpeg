@@ -38,5 +38,5 @@ if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
  make -j${cpu_num}
  make install
 fi
-cd ..
+cd $MY_DIR
 echo "==========================pkg-config build successful!=========================="
