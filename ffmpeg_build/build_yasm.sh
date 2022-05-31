@@ -35,7 +35,7 @@ if [ -e $YASM"-"$YASM_VERSION ]; then
  cd $YASM"-"$YASM_VERSION
  $YASM_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

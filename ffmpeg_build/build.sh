@@ -6,6 +6,9 @@ source ./config.sh
 
 cd $MY_DIR
 
+startTime=`date +%Y%m%d-%H:%M:%S`
+startTime_s=`date +%s`
+
 if [ -e "output" ]; then
  rm -rf output
 fi
@@ -20,3 +23,11 @@ mkdir output/bin
 . build_libvpx.sh
 . build_libx264.sh
 . build_ffmpeg.sh
+
+
+endTime=`date +%Y%m%d-%H:%M:%S`
+endTime_s=`date +%s`
+
+sumTime=$[ $endTime_s - $startTime_s ]
+
+echo "Total Compilation Time $sumTime seconds"

@@ -3,7 +3,7 @@
 set -e
 
 FDK_AAC="fdk-aac"
-FDK_AAC_VERSION="2.0.0"
+FDK_AAC_VERSION="2.0.2"
 FDK_AAC_URL="https://downloads.sourceforge.net/opencore-amr/"
 FDK_AAC_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
@@ -34,7 +34,7 @@ if [ -e $FDK_AAC"-"$FDK_AAC_VERSION ]; then
  cd $FDK_AAC"-"$FDK_AAC_VERSION
  $FDK_AAC_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

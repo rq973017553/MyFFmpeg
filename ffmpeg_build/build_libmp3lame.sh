@@ -36,7 +36,7 @@ if [ -e $LAME"-"$LAME_VERSION ]; then
  cd $LAME"-"$LAME_VERSION
  $LAME_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

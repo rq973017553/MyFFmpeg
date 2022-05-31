@@ -35,7 +35,7 @@ if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
  cd $PKG_CONFIG"-"$PKG_CONFIG_VERSION
  $PKG_CONFIG_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

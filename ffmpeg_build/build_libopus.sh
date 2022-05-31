@@ -5,7 +5,7 @@ set -e
 
 OPUS="opus"
 OPUS_URL="http://downloads.xiph.org/releases/opus/"
-OPUS_VERSION="1.1"
+OPUS_VERSION="1.3.1"
 OPUS_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
@@ -35,7 +35,7 @@ if [ -e $OPUS"-"$OPUS_VERSION ]; then
  cd $OPUS"-"$OPUS_VERSION
  $OPUS_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

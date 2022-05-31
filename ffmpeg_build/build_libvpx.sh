@@ -3,6 +3,8 @@
 
 set -e
 
+PATH=$PATH:$PREFIX/bin
+
 LIBVPX="libvpx"
 LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"
 LIBVPX_VERSION="1.11.0"
@@ -38,7 +40,8 @@ if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
  cd $LIBVPX"-"$LIBVPX_VERSION
  $LIBVPX_CONFIGURE_COMMAND
  make clean
- PATH=$PATH:$PREFIX/bin make && make install
+ make -j${cpu_num}
+ make install
 fi
 cd ..
 echo "==========================libvpx build successful!=========================="

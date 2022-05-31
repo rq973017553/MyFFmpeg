@@ -25,7 +25,7 @@ if [ -e $X264 ]; then
  cd $X264
  $X264_CONFIGURE_COMMAND
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 cd ..

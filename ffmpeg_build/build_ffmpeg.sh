@@ -6,6 +6,8 @@
 
 set -e
 
+PATH=$PATH:$PREFIX/lib
+
 PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
@@ -17,7 +19,7 @@ COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --bindir=$PREFIX/bin
 --extra-cflags=-I$PREFIX/include
 --extra-ldflags=-L$PREFIX/lib
---enable-pthreads
+--pkg-config-flags="--static"
 --enable-gpl
 --enable-version3
 --disable-optimizations
@@ -66,7 +68,7 @@ if [ -e $FFMPEG ]; then
   $LINUX_FFMPEG_CONFIGURE_COMMAND
  fi
  make clean
- make
+ make -j${cpu_num}
  make install
 fi
 echo "==========================ffmpeg build successful!=========================="
