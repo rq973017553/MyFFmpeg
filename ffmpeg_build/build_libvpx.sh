@@ -10,13 +10,23 @@ LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"
 LIBVPX_VERSION="1.11.0"
 LIBVPX_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---disable-shared
---enable-static
 --disable-examples
 --disable-unit-tests
 --enable-vp9-highbitdepth
 --as=yasm
 "
+
+if [[ "$enableShared" == true  ]]; then
+ LIBVPX_CONFIGURE_COMMAND=$LIBVPX_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ LIBVPX_CONFIGURE_COMMAND=$LIBVPX_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 echo "==========================download libvpx=========================="
 if [ ! -e $LIBVPX".tar.gz" ]; then

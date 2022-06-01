@@ -2,6 +2,7 @@
 
 set -e
 
+source ./tools.sh
 source ./config.sh
 
 cd $MY_DIR
@@ -32,3 +33,14 @@ endTime_s=`date +%s`
 sumTime=$[ $endTime_s - $startTime_s ]
 
 echo "Total Compilation Time $sumTime seconds"
+
+echo "==========================test ffmpeg!=========================="
+
+if [[ "$enableShared" == true  ]]; then
+ export LD_LIBRARY_PATH=$MY_DIR/output/lib/
+ cd $MY_DIR/output/bin
+ ./ffmpeg -version
+else
+ cd $MY_DIR/output/bin
+ ./ffmpeg -version
+fi

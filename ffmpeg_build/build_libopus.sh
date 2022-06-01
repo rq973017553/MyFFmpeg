@@ -9,9 +9,19 @@ OPUS_VERSION="1.3.1"
 OPUS_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---disable-shared
---enable-static
 "
+
+if [[ "$enableShared" == true  ]]; then
+ OPUS_CONFIGURE_COMMAND=$OPUS_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ OPUS_CONFIGURE_COMMAND=$OPUS_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 echo "==========================download libopus=========================="
 if [ ! -e $OPUS".tar.gz" ]; then

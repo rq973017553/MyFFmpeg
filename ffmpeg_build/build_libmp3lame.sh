@@ -9,10 +9,19 @@ LAME_URL="https://sourceforge.net/projects/lame/files/lame/3.100/"
 LAME_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-nasm
---disable-shared
---enable-static
 "
+
+if [[ "$enableShared" == true  ]]; then
+ LAME_CONFIGURE_COMMAND=$LAME_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ LAME_CONFIGURE_COMMAND=$LAME_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 echo "==========================download lame=========================="
 if [ ! -e $LAME".tar.gz" ]; then

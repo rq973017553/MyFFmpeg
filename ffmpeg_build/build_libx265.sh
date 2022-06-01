@@ -18,7 +18,12 @@ fi
 echo "==========================build x265=========================="
 if [ -e $X265 ]; then
  cd $X265/build/linux
- cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$PREFIX -DENABLE_SHARED=off ../../source
+ if [[ "$enableShared" == true  ]]; then
+  switchStatus=on
+ else
+  switchStatus=off
+ fi
+ cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$PREFIX -DENABLE_SHARED=$switchStatus ../../source
  make -j${cpu_num}
  make install
 fi

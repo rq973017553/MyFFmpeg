@@ -24,12 +24,22 @@ COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --enable-gpl
 --enable-version3
 --disable-optimizations
---disable-shared
---enable-static
 --enable-debug
 --enable-nonfree
 --enable-filter=delogo
 "
+
+if [[ "$enableShared" == true  ]]; then
+ COMMON_FFMPEG_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ COMMON_FFMPEG_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 # linux配置
 LINUX_FFMPEG_CONFIGURE_COMMAND=$COMMON_FFMPEG_CONFIGURE_COMMAND"

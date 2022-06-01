@@ -8,11 +8,7 @@ YASM_VERSION="1.3.0"
 YASM_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-static
---disable-shared
 "
-
-
 echo "==========================download yasm=========================="
 if [ ! -e $YASM".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then

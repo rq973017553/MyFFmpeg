@@ -8,10 +8,20 @@ X264_GIT_URL="https://code.videolan.org/videolan/x264.git"
 X264_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---disable-shared
---enable-static
 --disable-asm
 "
+
+if [[ "$enableShared" == true  ]]; then
+ X264_CONFIGURE_COMMAND=$X264_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ X264_CONFIGURE_COMMAND=$X264_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 echo $CLONE_GIT_COMMAND$X264_GIT_URL
 

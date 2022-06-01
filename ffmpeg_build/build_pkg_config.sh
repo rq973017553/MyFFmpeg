@@ -8,10 +8,18 @@ PKG_CONFIG_URL="https://pkg-config.freedesktop.org/releases/"
 PKG_CONFIG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---enable-shared
 --with-internal-glib
 "
 
+if [[ "$enableShared" == true  ]]; then
+ PKG_CONFIG_CONFIGURE_COMMAND=$PKG_CONFIG_CONFIGURE_COMMAND"
+ --enable-shared
+ "
+else
+ PKG_CONFIG_CONFIGURE_COMMAND=$PKG_CONFIG_CONFIGURE_COMMAND"
+ --enable-static
+ "
+fi
 
 echo "==========================download pkg-config=========================="
 if [ ! -e $PKG_CONFIG".tar.gz" ]; then

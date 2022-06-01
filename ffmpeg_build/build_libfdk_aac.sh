@@ -8,9 +8,19 @@ FDK_AAC_URL="https://downloads.sourceforge.net/opencore-amr/"
 FDK_AAC_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
 --bindir=$PREFIX/bin
---disable-shared
---enable-static
 "
+
+if [[ "$enableShared" == true  ]]; then
+ FDK_AAC_CONFIGURE_COMMAND=$FDK_AAC_CONFIGURE_COMMAND"
+ --enable-shared
+ --disable-static
+ "
+else
+ FDK_AAC_CONFIGURE_COMMAND=$FDK_AAC_CONFIGURE_COMMAND"
+ --enable-static
+ --disable-shared
+ "
+fi
 
 echo "==========================download fdk-aac=========================="
 if [ ! -e $FDK_AAC".tar.gz" ]; then
