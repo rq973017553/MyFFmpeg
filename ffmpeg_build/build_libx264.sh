@@ -14,12 +14,10 @@ X264_CONFIGURE_COMMAND="./configure
 if [[ "$enableShared" == true  ]]; then
  X264_CONFIGURE_COMMAND=$X264_CONFIGURE_COMMAND"
  --enable-shared
- --disable-static
  "
 else
  X264_CONFIGURE_COMMAND=$X264_CONFIGURE_COMMAND"
  --enable-static
- --disable-shared
  "
 fi
 

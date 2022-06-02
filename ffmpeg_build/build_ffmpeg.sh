@@ -21,6 +21,7 @@ COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --extra-ldflags=-L$PREFIX/lib
 --pkg-config-flags="--static"
 --extra-libs="-lpthread"
+--enable-ffplay
 --enable-gpl
 --enable-version3
 --disable-optimizations

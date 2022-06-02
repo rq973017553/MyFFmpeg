@@ -10,9 +10,13 @@ LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"
 LIBVPX_VERSION="1.11.0"
 LIBVPX_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
+--enable-vp8
+--enable-vp9
+--enable-vp9-highbitdepth
+--enable-vp9-postproc
+--enable-vp9-temporal-denoising
 --disable-examples
 --disable-unit-tests
---enable-vp9-highbitdepth
 --as=yasm
 "
 
