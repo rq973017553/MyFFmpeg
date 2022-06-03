@@ -33,20 +33,20 @@ else
 fi
 
 echo "==========================download libvpx=========================="
-if [ ! -e $LIBVPX".tar.gz" ]; then
+if [ ! -e $LIBVPX"-"$LIBVPX_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" > $LIBVPX".tar.gz"
+  curl $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" > $LIBVPX"-"$LIBVPX_VERSION".tar.gz"
  else
-  wget $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" -O $LIBVPX".tar.gz"
+  wget $LIBVPX_URL$LIBVPX"-"$LIBVPX_VERSION".tar.gz" -O $LIBVPX"-"$LIBVPX_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip libvpx=========================="
-if [ -e $LIBVPX".tar.gz" ]; then
+if [ -e $LIBVPX"-"$LIBVPX_VERSION".tar.gz" ]; then
  if [ -e $LIBVPX"-"$LIBVPX_VERSION ]; then
   rm -rf $LIBVPX"-"$LIBVPX_VERSION
  fi
- tar zxvf $LIBVPX".tar.gz"
+ tar zxvf $LIBVPX"-"$LIBVPX_VERSION".tar.gz"
 fi
 
 echo "==========================build libvpx=========================="

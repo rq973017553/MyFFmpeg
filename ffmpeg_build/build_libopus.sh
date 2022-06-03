@@ -24,20 +24,20 @@ else
 fi
 
 echo "==========================download libopus=========================="
-if [ ! -e $OPUS".tar.gz" ]; then
+if [ ! -e $OPUS"-"$OPUS_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" > $OPUS".tar.gz"
+  curl $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" > $OPUS"-"$OPUS_VERSION".tar.gz"
  else
-  wget $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" -O $OPUS".tar.gz"
+  wget $OPUS_URL$OPUS"-"$OPUS_VERSION".tar.gz" -O $OPUS"-"$OPUS_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip libopus=========================="
-if [ -e $OPUS".tar.gz" ]; then
+if [ -e $OPUS"-"$OPUS_VERSION".tar.gz" ]; then
  if [ -e $OPUS"-"$OPUS_VERSION ]; then
   rm -rf $OPUS"-"$OPUS_VERSION
  fi
- tar zxvf $OPUS".tar.gz"
+ tar zxvf $OPUS"-"$OPUS_VERSION".tar.gz"
 fi
 
 echo "==========================build libopus=========================="

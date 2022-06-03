@@ -23,20 +23,20 @@ else
 fi
 
 echo "==========================download SDL2=========================="
-if [ ! -e $SDL2".tar.gz" ]; then
+if [ ! -e $SDL2"-"$SDL2_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $SDL2_URL$SDL2"-"$SDL2_VERSION".tar.gz" > $SDL2".tar.gz"
+  curl $SDL2_URL$SDL2"-"$SDL2_VERSION".tar.gz" > $SDL2"-"$SDL2_VERSION".tar.gz"
  else
-  wget $SDL2_URL$SDL2"-"$SDL2_VERSION".tar.gz" -O $SDL2".tar.gz"
+  wget $SDL2_URL$SDL2"-"$SDL2_VERSION".tar.gz" -O $SDL2"-"$SDL2_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip SDL2=========================="
-if [ -e $SDL2".tar.gz" ]; then
+if [ -e $SDL2"-"$SDL2_VERSION".tar.gz" ]; then
  if [ -e $SDL2"-"$SDL2_VERSION ]; then
   rm -rf $SDL2"-"$SDL2_VERSION
  fi
- tar zxvf $SDL2".tar.gz"
+ tar zxvf $SDL2"-"$SDL2_VERSION".tar.gz"
 fi
 
 echo "==========================build SDL2=========================="

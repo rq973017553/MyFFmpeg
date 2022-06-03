@@ -24,20 +24,20 @@ else
 fi
 
 echo "==========================download lame=========================="
-if [ ! -e $LAME".tar.gz" ]; then
+if [ ! -e $LAME"-"$LAME_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" > $LAME".tar.gz"
+  curl $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" > $LAME"-"$LAME_VERSION".tar.gz"
  else
-  wget $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" -O $LAME".tar.gz"
+  wget $LAME_URL$LAME"-"$LAME_VERSION".tar.gz" -O $LAME"-"$LAME_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip lame=========================="
-if [ -e $LAME".tar.gz" ]; then
+if [ -e $LAME"-"$LAME_VERSION".tar.gz" ]; then
  if [ -e $LAME"-"$LAME_VERSION ]; then
   rm -rf $LAME"-"$LAME_VERSION
  fi
- tar zxvf $LAME".tar.gz"
+ tar zxvf $LAME"-"$LAME_VERSION".tar.gz"
 fi
 
 echo "==========================build lame=========================="

@@ -10,20 +10,20 @@ YASM_CONFIGURE_COMMAND="./configure
 --bindir=$PREFIX/bin
 "
 echo "==========================download yasm=========================="
-if [ ! -e $YASM".tar.gz" ]; then
+if [ ! -e $YASM"-"$YASM_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" > $YASM".tar.gz"
+  curl $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" > $YASM"-"$YASM_VERSION".tar.gz"
  else
-  wget $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" -O $YASM".tar.gz"
+  wget $YASM_DOWNLOAD_URL$YASM"-"$YASM_VERSION".tar.gz" -O $YASM"-"$YASM_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip yasm=========================="
-if [ -e $YASM".tar.gz" ]; then
+if [ -e $YASM"-"$YASM_VERSION".tar.gz" ]; then
  if [ -e $YASM"-"$YASM_VERSION ]; then
   rm -rf $YASM"-"$YASM_VERSION
  fi
- tar zxvf $YASM".tar.gz"
+ tar zxvf $YASM"-"$YASM_VERSION".tar.gz"
 fi
 
 echo "==========================build yasm=========================="

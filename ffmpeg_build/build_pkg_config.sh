@@ -22,20 +22,20 @@ else
 fi
 
 echo "==========================download pkg-config=========================="
-if [ ! -e $PKG_CONFIG".tar.gz" ]; then
+if [ ! -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > $PKG_CONFIG".tar.gz"
+  curl $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" > $PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz"
  else
-  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG".tar.gz"
+  wget $PKG_CONFIG_URL$PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" -O $PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip pkg-config=========================="
-if [ -e $PKG_CONFIG".tar.gz" ]; then
+if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz" ]; then
  if [ -e $PKG_CONFIG"-"$PKG_CONFIG_VERSION ]; then
   rm -rf $PKG_CONFIG"-"$PKG_CONFIG_VERSION
  fi
- tar zxvf $PKG_CONFIG".tar.gz"
+ tar zxvf $PKG_CONFIG"-"$PKG_CONFIG_VERSION".tar.gz"
 fi
 
 echo "==========================build pkg-config=========================="

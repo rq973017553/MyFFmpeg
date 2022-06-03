@@ -23,20 +23,20 @@ else
 fi
 
 echo "==========================download fdk-aac=========================="
-if [ ! -e $FDK_AAC".tar.gz" ]; then
+if [ ! -e $FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" ]; then
  if [[ $SYSTEM == "Darwin" ]]; then
-  curl $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" > $FDK_AAC".tar.gz"
+  curl $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" > $FDK_AAC"-"$FDK_AAC_VERSION".tar.gz"
  else
-  wget $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" -O $FDK_AAC".tar.gz"
+  wget $FDK_AAC_URL$FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" -O $FDK_AAC"-"$FDK_AAC_VERSION".tar.gz"
  fi
 fi
  
 echo "==========================unzip fdk-aac=========================="
-if [ -e $FDK_AAC".tar.gz" ]; then
+if [ -e $FDK_AAC"-"$FDK_AAC_VERSION".tar.gz" ]; then
  if [ -e $FDK_AAC"-"$FDK_AAC_VERSION ]; then
   rm -rf $FDK_AAC"-"$FDK_AAC_VERSION
  fi
- tar zxvf $FDK_AAC".tar.gz"
+ tar zxvf $FDK_AAC"-"$FDK_AAC_VERSION".tar.gz"
 fi
 
 echo "==========================build fdk_aac=========================="
