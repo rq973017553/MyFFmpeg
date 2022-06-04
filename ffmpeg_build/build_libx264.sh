@@ -1,5 +1,5 @@
 #! /bin/bash
-# 编码H.264视频，编译参数--enable-gpl --enable-libx264
+# 编码H.264视频，ffmpeg通过编译参数--enable-gpl --enable-libx264来开启
 
 set -e
 

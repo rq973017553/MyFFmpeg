@@ -1,5 +1,5 @@
 #! /bin/bash
-
+# 编译vpx和ffmpeg的时候需要用到的yasm开源汇编库
 set -e
 
 YASM="yasm"

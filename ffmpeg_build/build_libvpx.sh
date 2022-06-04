@@ -1,9 +1,9 @@
 #! /bin/bash
-# VP8/VP9视频编码器，编译参数--enable-libvpx
+# VP8/VP9视频编码器，ffmpeg通过编译参数--enable-libvpx来开启
 
 set -e
 
-PATH=$PATH:$PREFIX/bin
+PATH=$PATH:$PREFIX/bin # 设置环境变量，将$PREFIX/bin目录下的可执行二进制文件设置进去，方便调用
 
 LIBVPX="libvpx"
 LIBVPX_URL="http://ftp.osuosl.org/pub/blfs/conglomeration/libvpx/"

@@ -6,7 +6,7 @@
 
 set -e
 
-PATH=$PATH:$PREFIX/lib
+PATH=$PATH:$PREFIX/lib # 设置环境变量，将$PREFIX/bin目录下的可执行二进制文件设置进去，方便调用
 
 PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH

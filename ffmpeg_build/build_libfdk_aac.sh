@@ -1,5 +1,5 @@
 #! /bin/bash
-# 编码AAC音频，编译参数--enable-libfdk-aac
+# 编码AAC音频，ffmpeg通过编译参数--enable-libfdk-aac来开启
 set -e
 
 FDK_AAC="fdk-aac"

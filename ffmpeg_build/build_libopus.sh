@@ -1,5 +1,5 @@
 #! /bin/bash
-# 编码Opus音频
+# 编码Opus音频，ffmpeg通过编译参数--enable-libopus来开启
 
 set -e
 

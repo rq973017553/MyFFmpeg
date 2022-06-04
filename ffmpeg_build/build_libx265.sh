@@ -1,5 +1,5 @@
 #! /bin/bash
-# 编码H.265视频，编译参数--enable-gpl --enable-libx265
+# 编码H.265视频，ffmpeg通过编译参数--enable-gpl --enable-libx265来开启
 
 set -e
 
