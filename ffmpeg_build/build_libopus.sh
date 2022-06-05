@@ -8,7 +8,6 @@ OPUS_URL="http://downloads.xiph.org/releases/opus/"
 OPUS_VERSION="1.3.1"
 OPUS_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 "
 
 if [[ "$enableShared" == true  ]]; then

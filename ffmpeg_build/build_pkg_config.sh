@@ -7,7 +7,6 @@ PKG_CONFIG_VERSION="0.29.2"
 PKG_CONFIG_URL="https://pkg-config.freedesktop.org/releases/"
 PKG_CONFIG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 --with-internal-glib
 "
 

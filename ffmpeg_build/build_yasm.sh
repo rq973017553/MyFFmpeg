@@ -7,7 +7,6 @@ YASM_DOWNLOAD_URL="http://www.tortall.net/projects/yasm/releases/"
 YASM_VERSION="1.3.0"
 YASM_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 "
 echo "==========================download yasm=========================="
 if [ ! -e $YASM"-"$YASM_VERSION".tar.gz" ]; then

@@ -8,7 +8,6 @@ LAME_VERSION="3.100"
 LAME_URL="https://sourceforge.net/projects/lame/files/lame/3.100/"
 LAME_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 "
 
 if [[ "$enableShared" == true  ]]; then

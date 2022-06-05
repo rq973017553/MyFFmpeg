@@ -7,7 +7,6 @@ SDL2_VERSION="2.0.22"
 SDL2_URL="http://www.libsdl.org/release/"
 SDL2_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 "
 
 if [[ "$enableShared" == true  ]]; then

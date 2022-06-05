@@ -16,7 +16,6 @@ FFMPEG="FFmpeg"
 # 通用配置
 COMMON_FFMPEG_CONFIGURE_COMMAND="./configure
 --prefix=$PREFIX
---bindir=$PREFIX/bin
 --extra-cflags=-I$PREFIX/include
 --extra-ldflags=-L$PREFIX/lib
 --pkg-config-flags="--static"
